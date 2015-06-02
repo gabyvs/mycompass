@@ -1,0 +1,42 @@
+<div class="boardSection">
+    <div class="parent-period">
+        <div ng-mouseenter="showAddTMonth = true" ng-mouseleave="showAddTMonth = false">
+            <span class="header"><a href="/board/{{ year }}/{{ quarter }}/{{ month }}">{{ monthName }}</a></span>
+            <span ng-show="showAddTMonth" class="glyphicon glyphicon-plus show-add-objective" ng-click="addToMonth = true"></span>
+        </div>
+        <ul class="wishList monthObjectives" list="month">
+            <add-objective objectives="monthObjectives" show-on="addToMonth" parent="monthMasterObjective"></add-objective>
+            <objective-list-element ng-repeat="objective in monthObjectives" objective="objective" objectives="monthObjectives" show-tooltip="true"></objective-list-element>
+        </ul>
+    </div>
+    <div class="main-period reduced">
+        <div>
+            <div class="previous"><span class="go-to-previous" ng-show="week != 1" ng-click="goTo(-1)"></span></div>
+            <div class="header" ng-mouseenter="showAddToWeek = true" ng-mouseleave="showAddToWeek = false">
+                <span class="header-text-container">
+                    W{{ week }}
+                    <span ng-show="showAddToWeek" class="glyphicon glyphicon-plus show-add-objective" ng-click="addToWeek = true"></span>
+                </span>
+            </div>
+            <div class="next"><span class="go-to-next" ng-show="week != 52" ng-click="goTo(1)"></span></div>
+        </div>
+        <ul class="wishList weekObjectives" list="week">
+            <objective-list-element ng-repeat="objective in weekObjectives" objective="objective" objectives="weekObjectives"></objective-list-element>
+            <add-objective objectives="weekObjectives" show-on="addToWeek" parent="weekMasterObjective"></add-objective>
+        </ul>
+    </div>
+    <div class="children-periods enlarged">
+        <div class="child-period day" ng-repeat="day in days" ng-class="day.label">
+            <div class="header" ng-mouseenter="day.showAddTo = true" ng-mouseleave="day.showAddTo = false">
+                <span class="header-text-container">
+                    {{ day.label }} {{ day.value }}
+                    <span ng-show="day.showAddTo" class="glyphicon glyphicon-plus show-add-objective" ng-click="day.addToDay = true"></span>
+                </span>
+            </div>
+            <ul class="wishList" ng-class="day.label + 'Objectives'" list="day" listid="{{ day.value }}">
+                <add-objective objectives="day.objectives" show-on="day.addToDay" parent="day.masterObjective"></add-objective>
+                <objective-list-element ng-repeat="objective in day.objectives" objective="objective" objectives="day.objectives"></objective-list-element>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "name": "MyCompass",
+    "version": 0.1,
+    "dependencies": {
+        "angular": "latest",
+        "angular-route": "latest",
+        "angular-ui-bootstrap": "latest",
+        "bootstrap": "latest",
+        "less": "latest",
+        "lodash": "latest",
+        "moment": "latest",
+        "sortable": "RubaXa/Sortable"
+    },
+    "devDependencies": {
+        "angular-mocks": "latest"
+    }
+}

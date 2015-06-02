@@ -1,0 +1,10 @@
+<li class="objective-container" ng-class="objective.category" taskid="{{ objective._id }}">
+    <span class="glyphicon objective-status"
+          ng-click="changeStatus()"
+          ng-class="{ 'glyphicon-unchecked': !objective.status || objective.status == 'new', 'glyphicon-play': objective.status == 'started', 'glyphicon-ok': objective.status == 'closed' }">
+    </span>
+    <span class="objective-text" tooltip="{{ showTooltip ? objective.label : '' }}" tooltip-placement="right">{{ objective.label }}</span>
+    <span class="glyphicon glyphicon-menu-hamburger configure-activity" ng-click="editObjective()"></span>
+    <span class="show-add-activity" ng-click="showAdding()">+</span>
+    <add-objective objectives="objectives" show-on="adding" parent="objective"></add-objective>
+</li>

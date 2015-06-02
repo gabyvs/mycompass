@@ -1,0 +1,42 @@
+<div class="boardSection">
+    <div class="parent-period">
+        <div ng-mouseenter="showAddToQuarter = true" ng-mouseleave="showAddToQuarter = false">
+            <span class="header"><a href="/board/{{ year }}/{{ quarter }}">Q{{ quarter }}</a></span>
+            <span ng-show="showAddToQuarter" class="glyphicon glyphicon-plus show-add-objective" ng-click="addToQuarter = true"></span>
+        </div>
+        <ul class="wishList quarterObjectives" list="quarter">
+            <add-objective objectives="quarterObjectives" show-on="addToQuarter" parent="quarterMasterObjective"></add-objective>
+            <objective-list-element ng-repeat="objective in quarterObjectives" objective="objective" objectives="quarterObjectives" show-tooltip="true"></objective-list-element>
+        </ul>
+    </div>
+    <div class="main-period">
+        <div>
+            <div class="previous"><span class="go-to-previous" ng-show="month != 0" ng-click="goTo(-1)"></span></div>
+            <div class="header" ng-mouseenter="showAddToMonth = true" ng-mouseleave="showAddToMonth = false">
+                <span class="header-text-container">
+                    {{ monthName }}
+                    <span ng-show="showAddToMonth" class="glyphicon glyphicon-plus show-add-objective" ng-click="addToMonth = true"></span>
+                </span>
+            </div>
+            <div class="next"><span class="go-to-next" ng-show="month != 11" ng-click="goTo(1)"></span></div>
+        </div>
+        <ul class="wishList monthObjectives" list="month">
+            <objective-list-element ng-repeat="objective in monthObjectives" objective="objective" objectives="monthObjectives"></objective-list-element>
+            <add-objective objectives="monthObjectives" show-on="addToMonth" parent="monthMasterObjective"></add-objective>
+        </ul>
+    </div>
+    <div class="children-periods">
+        <div class="child-period week" ng-repeat="week in weeks" ng-style="{'width': weekWidth }">
+            <div class="header" ng-mouseenter="week.showAddTo = true" ng-mouseleave="week.showAddTo = false">
+                <span class="header-text-container">
+                    <a href="/board/{{ year }}/{{ quarter }}/{{ month }}/{{ week.value }}">W{{ week.value }}</a>
+                    <span ng-show="week.showAddTo" class="glyphicon glyphicon-plus show-add-objective" ng-click="week.addToWeek = true"></span>
+                </span>
+            </div>
+            <ul class="wishList" ng-class="'w' + week.value + 'Objectives'" list="week" listid="{{ week.value }}">
+                <add-objective objectives="week.objectives" show-on="week.addToWeek" parent="week.masterObjective"></add-objective>
+                <objective-list-element ng-repeat="objective in week.objectives" objective="objective" objectives="week.objectives"></objective-list-element>
+            </ul>
+        </div>
+    </div>
+</div>

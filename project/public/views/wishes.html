@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>All My Wishes</h1>
+    <div class="add-container">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="addWish()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </span>
+            <input type="text" class="form-control" placeholder="Add a new wish" ng-model="newWish" />
+        </div>
+    </div>
+    <div ng-repeat="wish in wishes" class="list-item"><span>{{ wish.label }}</span></div>
+</div>

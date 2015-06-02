@@ -1,0 +1,264 @@
+html, body {
+    height: 100%;
+}
+.page-content {
+    height: calc(~"100% - 56px");
+}
+.navbar {
+    border-radius: 0px!important;
+    margin-bottom: 0px!important;
+    border: none!important;
+    .nav > li > a {
+        color: #000000;
+    }
+    .navbar-title {
+        font-size: 24px;
+    }
+    .navbar-header {
+        margin: 5px 15px;
+        color: #000000;
+    }
+    .navbar-option {
+        a {
+            &:hover {
+                background-color: #eeeeee;
+            }
+        }
+        &.home-option {
+            font-size: 24px;
+        }
+
+    }
+    .active {
+        a {
+            background-color: black!important;
+            color: #ffffff!important;
+        }
+    }
+}
+
+h1 {
+    font-weight: 400!important;
+}
+.after-menu {
+    border-width: 2px 0px;
+    border-color: black;
+    border-style: solid;
+    height: 6px;
+}
+// Wishes
+.add-container {
+    margin: 30px 0px;
+}
+.list-item {
+    padding: 5px 0px;
+}
+// Board
+.boardSection {
+    height: 100%;
+    .wishList li {
+        background-color: rgba(215, 212, 212, 0.6);
+    }
+    .header {
+        font-size: 30px;
+        font-weight: 300;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+    .parent-period {
+        height: 100%;
+        width: 150px;
+        padding: 5px;
+        border-right: 2px solid #000;
+        float: left;
+        .header {
+           padding: 5px;
+        }
+        .wishList li {
+            margin: 5px 0px;
+            .objective-text {
+                max-width: 70px;
+                text-overflow: ellipsis;
+                display: inline-block;
+                white-space: nowrap;
+                overflow: hidden;
+                line-height: 14px;
+            }
+        }
+    }
+    .main-period {
+        padding: 15px;
+        width: calc(100% - 150px);
+        height: 40%;
+        margin-left: 150px;
+        .wishList {
+            li {
+                margin: 0px 15px 15px 0px;
+            }
+        }
+        .previous {
+            float: left;
+            margin-top: 12px;
+            .go-to-previous {
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid #000000;
+                display: inline-block;
+            }
+        }
+        .header {
+            width: calc(~"100% - 30px");
+            float: left;
+            text-align: center;
+        }
+        .next {
+            float: right;
+            margin-top: 12px;
+            .go-to-next {
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid #000000;
+                display: inline-block;
+            }
+        }
+        &.reduced {
+            height: 30%;
+        }
+    }
+    .children-periods {
+        height: 60%;
+        margin-left: 150px;
+        border-top: 2px solid;
+        .header {
+            padding-left: 15px;
+            text-align: center;
+        }
+        .child-period {
+            float: left;
+            height: 100%;
+            border-right: 2px solid;
+        }
+        .child-period:last-child {
+            border-right: none;
+        }
+        .quarter {
+            width: 25%;
+        }
+        .month {
+            width: 33.33%;
+        }
+        .day {
+            height: 50%;
+        }
+        .Mon, .Tue, .Wed, .Thu {
+            width: 25%;
+            border-bottom: 2px solid;
+        }
+        .Thu {
+            border-right: none;
+        }
+        .Fri, .Sat, .Sun {
+            width: 33.33%;
+        }
+        .wishList li {
+            margin: 5px;
+        }
+        &.enlarged {
+            height: 70%;
+        }
+    }
+}
+ul.wishList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    li {
+        padding: 5px;
+        background-color: white;
+        display: inline-block;
+        border: 1px solid #eee;
+        &.nena {
+            background-color: rgba(146, 63, 191, 0.5);
+        }
+        &.home {
+            background-color: rgba(218, 142, 11, 0.5);
+        }
+        &.work {
+            background-color: rgba(11, 165, 248, 0.5);
+        }
+    }
+    .objective-container {
+        position: relative;
+        .objective-status {
+            vertical-align: top;
+        }
+        .show-add-activity {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 14px;
+            display: inline-block;
+        }
+        .configure-activity {
+            float: right;
+        }
+        .adding-activity {
+            position: absolute;
+            z-index: 105;
+        }
+    }
+}
+.header {
+    .header-text-container {
+        position: relative;
+        .show-add-objective {
+            position: absolute;
+            right: -20px;
+            top: 12px;
+        }
+    }
+}
+.show-add-objective {
+    font-size: 14px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+// objective
+.form-field {
+    margin: 2px 0px;
+}
+.form-label {
+    font-weight: 500;
+    width: 100px;
+    float: left;
+}
+.editObjective {
+    .left-side {
+        width: 50%;
+        float: left;
+    }
+    .right-side {
+        width: 50%;
+        float: right;
+    }
+    .objective-label {
+        width: 302px;
+    }
+    .objective-activities {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .add-activity-group {
+        width: 50%;
+    }
+}
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}

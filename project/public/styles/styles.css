@@ -1,0 +1,6 @@
+.navbar {
+  background-color: #134347;
+}
+.navbar .nav > li > a {
+  color: #ffffff!important;
+}

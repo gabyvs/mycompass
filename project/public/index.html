@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+
+    <title>Starter Node and Angular</title>
+    <!-- LESS -->
+    <link rel="stylesheet/less" type="text/css" href="styles/styles.less">
+    <script src="libs/less/dist/less.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/lodash/lodash.js"></script>
+    <script src="libs/moment/min/moment.min.js"></script>
+    <script src="libs/sortable/Sortable.js"></script>
+    <script src="libs/sortable/ng-sortable.js"></script>
+    <script src="dependencies/ui-bootstrap-tpls-0.12.1.min.js"></script>
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/appRoutes.js"></script>
+    <script src="js/services/configService.js"></script>
+    <script src="js/services/wishService.js"></script>
+    <script src="js/directives/objective-list-element.js"></script>
+    <script src="js/directives/add-objective.js"></script>
+    <script src="js/controllers/mainCtrl.js"></script>
+    <script src="js/controllers/config.js"></script>
+    <script src="js/controllers/wishes.js"></script>
+    <script src="js/controllers/yearBoard.js"></script>
+    <script src="js/controllers/quarterBoard.js"></script>
+    <script src="js/controllers/monthBoard.js"></script>
+    <script src="js/controllers/weekBoard.js"></script>
+    <script src="js/controllers/editObjective.js"></script>
+
+</head>
+<body ng-app="compassApp" ng-controller="main">
+    <nav class="navbar">
+        <ul class="nav navbar-nav">
+            <li class="navbar-option home-option" ng-class="{ 'active': tab === 'home' }"><a href="/" ng-click="tab = 'home'">My Compass</a></li>
+            <li class="navbar-option" ng-class="{ 'active': tab === 'wishes' }"><a href="/wishes" ng-click="tab = 'wishes'">Wish List</a></li>
+            <li class="navbar-option" ng-class="{ 'active': tab === 'board' }"><a href="/board" ng-click="tab = 'board'">Board</a></li>
+            <li class="navbar-option" ng-class="{ 'active': tab === 'config' }"><a href="/config" ng-click="tab = 'config'">Config</a></li>
+        </ul>
+    </nav>
+    <div class="after-menu"></div>
+    <div class="page-content" ng-view></div>
+</body>
+</html>

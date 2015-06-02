@@ -1,0 +1,42 @@
+<div class="boardSection">
+    <div class="parent-period">
+        <div ng-mouseenter="showAddWish = true" ng-mouseleave="showAddWish = false">
+            <span class="header"><a href="/wishes">Wishes</a></span>
+            <span ng-show="showAddWish" class="glyphicon glyphicon-plus show-add-objective" ng-click="addWish = true"></span>
+        </div>
+        <ul class="wishList allWishes" list="wishes">
+            <add-objective objectives="wishes" show-on="addWish"></add-objective>
+            <objective-list-element ng-repeat="wish in wishes" objective="wish" objectives="wishes" show-tooltip="true"></objective-list-element>
+        </ul>
+    </div>
+    <div class="main-period">
+        <div>
+            <div class="previous"><span class="go-to-previous" ng-click="goTo(-1)"></span></div>
+            <div class="header" ng-mouseenter="showAddToYear = true" ng-mouseleave="showAddToYear = false">
+                <span class="header-text-container">
+                    {{ year }}
+                    <span ng-show="showAddToYear" class="glyphicon glyphicon-plus show-add-objective" ng-click="addYearObjective = true"></span>
+                </span>
+            </div>
+            <div class="next"><a><span class="go-to-next" ng-click="goTo(1)"></span></a></div>
+        </div>
+        <ul class="wishList yearObjectives" list="year">
+            <objective-list-element ng-repeat="objective in yearObjectives" objective="objective" objectives="yearObjectives"></objective-list-element>
+            <add-objective objectives="yearObjectives" show-on="addYearObjective" parent="yearMasterObjective"></add-objective>
+        </ul>
+    </div>
+    <div class="children-periods">
+        <div class="child-period quarter" ng-repeat="quarter in quarters">
+            <div class="header" ng-mouseenter="quarter.showAddTo = true" ng-mouseleave="quarter.showAddTo = false">
+                <span class="header-text-container">
+                    <a class="header-text" href="/board/{{ year }}/{{ quarter.value }}">Q{{ quarter.value }}</a>
+                    <span ng-show="quarter.showAddTo" class="glyphicon glyphicon-plus show-add-objective" ng-click="quarter.addQuarterObjective = true"></span>
+                </span>
+            </div>
+            <ul class="wishList" ng-class="'Q' + quarter.value + 'Objectives'" list="quarter" listid="{{ quarter.value }}">
+                <add-objective objectives="quarter.objectives" show-on="quarter.addQuarterObjective" parent="quarter.masterObjective"></add-objective>
+                <objective-list-element ng-repeat="objective in quarter.objectives" objective="objective" objectives="quarter.objectives"></objective-list-element>
+            </ul>
+        </div>
+    </div>
+</div>
